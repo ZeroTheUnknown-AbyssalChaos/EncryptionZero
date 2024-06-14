@@ -126,9 +126,12 @@ public class Test implements TextFormat{
     }
 
     public static void main(String[] args) {
+        Test test = new Test();
         Scanner sc = new Scanner(System.in);
+
         giveOptions();
-        String eingabe = sc.nextLine();
+        String eingabe = test.consoleInPrint(sc);
+
         while (!eingabe.startsWith("/q")){
             eingabe = eingabe.toLowerCase();
             if (eingabe.startsWith("/use ")){
@@ -151,7 +154,7 @@ public class Test implements TextFormat{
                 System.out.println("\r\nInvalid Command!\r\n");
                 giveOptions();
             }
-            eingabe = sc.nextLine();
+            test.consoleInPrint(sc);
         }
     }
 }

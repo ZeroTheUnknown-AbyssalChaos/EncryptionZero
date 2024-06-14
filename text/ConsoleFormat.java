@@ -1,5 +1,7 @@
 package EncryptionZero.text;
 
+import java.util.Scanner;
+
 public interface ConsoleFormat {
 
 
@@ -29,5 +31,17 @@ public interface ConsoleFormat {
     default void printLine(int size, char c){
         System.out.println(line(size, c));
     }
+
+    static String consoleIn(Scanner sc){
+        return sc.nextLine();
+    }
+    static String consoleInPrint(Scanner sc, String message){
+        System.out.println(message);
+        return consoleIn(sc);
+    }
+    default String consoleInPrint(Scanner sc){
+        return consoleInPrint(sc, "\r\n\r\n\r\n\tWhat now?\r\n\r\n");
+    }
+
 
 }

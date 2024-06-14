@@ -40,7 +40,7 @@ public interface ConsoleFormat {
         return consoleIn(sc);
     }
     default String consoleInPrint(Scanner sc){
-        return consoleInPrint(sc, "\r\n\r\n\r\n\tWhat now?\r\n\r\n");
+        return consoleInPrint(sc, "\r\n\r\n\tWhat now?\r\n");
     }
 
 

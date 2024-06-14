@@ -15,7 +15,9 @@ public class Test implements TextFormat{
         System.out.println(FORMAT_RESET);
 
         test.printLine('#');
-        System.out.println("# Use "+FONT_PINK+"/q"+DEFAULT_COLOR+"to quit program");
+        System.out.println("# This Program ignores Letter Cases (Uppercase & Lowercase) " +
+                "for execure Inputs. Case Sensitive options are still possible");
+        System.out.println("# Use "+FONT_PINK+"/q"+DEFAULT_COLOR+" to quit program");
         System.out.println("# Use "+FONT_PINK+"/give "+FONT_BLUE+"Method"+DEFAULT_COLOR+" to receive the Info about the Method");
         System.out.println("# Use "+FONT_PINK+"/use "+FONT_BLUE+"Executable Method"+DEFAULT_COLOR+" to use Methods that are executable (excludes Options)");
         System.out.println("# 1: static methods of 'giveExample' + 'useExample'");
@@ -133,16 +135,15 @@ public class Test implements TextFormat{
         String eingabe = test.consoleInPrint(sc);
 
         while (!eingabe.startsWith("/q")){
-            eingabe = eingabe.toLowerCase();
-            if (eingabe.startsWith("/use ")){
-                eingabe = eingabe.replaceFirst("/use ", "");
+            if (eingabe.toLowerCase().startsWith("/use ")){
+                eingabe = eingabe.toLowerCase().replaceFirst("/use ", "");
                 if (eingabe.startsWith("example")){
                     useExample();
                 } else {
                     System.out.println("No Method could be used that is called: " + eingabe);
                 }
-            } else if (eingabe.startsWith("/give ")){
-                eingabe = eingabe.replaceFirst("/give ","");
+            } else if (eingabe.toLowerCase().startsWith("/give ")){
+                eingabe = eingabe.toLowerCase().replaceFirst("/give ","");
                 if (eingabe.startsWith("options")){
                     giveOptions();
                 } else if (eingabe.startsWith("example")){
